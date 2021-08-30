@@ -14,6 +14,31 @@
     public $nome = null;
     public $telefone = null;
     public $numFilhos = null;
+    public $cargo = null;
+    public $salario = null;
+
+
+
+    /* overloading(sobrecarga de metodos) funciona como uma especia de metodo coringa
+       que so sebemos que e um metodo do tipo get /set porem os aparametos podem variar
+       de acordo com a necessidade no codigo abaixo mostra que ele recebe atributo e valor
+       ou seja o atributo retornado ou alterado pode ser qualquer um dos atributos presentes no objeto em questão isso evita a aesrita de uma quantiodade grnade de linhas 
+       se cada atributo tivesse seu proprio get e set o codigo seria bem mais verboso
+      */
+
+    function __set($atributo,$valor){
+
+      $this->$atributo = $valor;
+
+    }
+
+    function __get($atributo){
+
+     return $this->$atributo;
+
+
+    }
+
 
 
     // metodos(açoes de um objeto)
@@ -31,7 +56,7 @@
     */
 
 
-      function setNome($nome){
+  /*    function setNome($nome){
 
       	$this->nome = $nome;
 
@@ -51,7 +76,7 @@
       function getNumFilhos(){
 
         return $this->numFilhos;
-      }
+      }*/
 
          
    
@@ -70,57 +95,44 @@
 
 
    }
+   
 
    $y = new Funcionario();
 
    //editando dados
 
-   $y->setNome('José');
-   $y->setNumFilhos(3);
+   $y->__set('nome','José');
+   $y->__set('numFilhos',2);
+   $y->__set('cargo','Operador');
+   $y->__set('salario',1200);
 
   // mostrando dados
 
-   echo "funcionario 1<br>";
+   echo "Dados do funcionario: 1<br> ";
 
-   echo $y->getNome().'  possui  '.$y->getNumFilhos().' filhos<br>';
+   echo 'Nome:'.$y->__get('nome').'<br>numero de filhos'.$y->__get('numFilhos').' <br>cargo'.
+   $y->__get('cargo').'<br>Salario:'.$y->__get('salario').'<br><br>';
 
   //criando um segundo objeto com base na mesma classe
 
-   echo "funcionario 2<br>";
+
+
 
    $x = new Funcionario();
    
    //editando dados 
 
-   $x->setNome('Maria');
-   $x->setNumFilhos(2);
+   $x->__set('nome','Maria');
+   $x->__set('numFilhos',3);
+   $x->__set('cargo','supervisora');
+   $x->__set('salario',1300);
 
    //mostrando dados
 
-   echo $x->getNome().'  possui  '.$x->getNumFilhos().' filhos<br>';
+   echo "Dados do funcionario: 2 <br> ";
 
+   echo 'Nome:'.$x->__get('nome').'<br>numero de filhos'.$x->__get('numFilhos').' <br>cargo'.
+   $x->__get('cargo').'<br>Salario:'.$x->__get('salario');
 
-
-
-
-  
-
-  
-
-
-
-
-
-
-
-
-   
-
-
-
-
-
-   
-   
 
 ?>
