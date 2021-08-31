@@ -84,7 +84,7 @@
 
     function resumirCadFunc(){
 
-    	echo "$this->nome possui $this->numFilhos filhos";
+    	echo $this->__get('nome')."  possui ".$this->__get('numFilhos')." filhos<br>"."ganha".$this->__get('salario')."<br> e trabalha como: ".$this->__get('cargo')."<br><br>";
      }
 
      function modificarNumFilhos($numFilhos){
@@ -110,8 +110,10 @@
 
    echo "Dados do funcionario: 1<br> ";
 
-   echo 'Nome:'.$y->__get('nome').'<br>numero de filhos'.$y->__get('numFilhos').' <br>cargo'.
-   $y->__get('cargo').'<br>Salario:'.$y->__get('salario').'<br><br>';
+   $y-> resumirCadFunc();
+
+ /*  echo 'Nome:'.$y->__get('nome').'<br>numero de filhos'.$y->__get('numFilhos').' <br>cargo'.
+   $y->__get('cargo').'<br>Salario:'.$y->__get('salario').'<br><br>';*/
 
   //criando um segundo objeto com base na mesma classe
 
@@ -130,9 +132,10 @@
    //mostrando dados
 
    echo "Dados do funcionario: 2 <br> ";
+    $x-> resumirCadFunc();
 
-   echo 'Nome:'.$x->__get('nome').'<br>numero de filhos'.$x->__get('numFilhos').' <br>cargo'.
-   $x->__get('cargo').'<br>Salario:'.$x->__get('salario');
+  /* echo 'Nome:'.$x->__get('nome').'<br>numero de filhos'.$x->__get('numFilhos').' <br>cargo'.
+   $x->__get('cargo').'<br>Salario:'.$x->__get('salario');*/
 
 
 ?>
