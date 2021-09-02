@@ -16,17 +16,37 @@
   */
 
 
- class Moto{
+  class Veiculo {
 
- 	public $placa      = 'ABC2233';
-  	public $cor        = 'branco';
+      public $placa = null;
+      public $cor   = null;
+
+      function acelerar(){
+        
+        echo "acelerar";
+
+     }
+
+
+  }
+
+
+
+
+ class Moto extends Veiculo{
+
+ 	
   	public $contra_peso_guidao = true;
 
-  	function acelerar(){
+  	//usando o metodo construtor para definir os  valores dos atributos herdados 
 
-  		echo "Acelerando moto";
+  	function __construct($cor,$placa){
+
+  		$this -> cor = $cor;
+  		$this -> placa =$placa;
   	}
 
+  
   	function empinar(){
 
   		echo "Empinando moto";
@@ -40,16 +60,18 @@
 
 
 
-  class Carro {
+  class Carro extends Veiculo{
 
-  	public $placa      = 'ABC1234';
-  	public $cor        = 'branco';
+  
   	public $teto_solar = true;
 
-  	function acelerar(){
+  	function __construct($cor,$placa){
 
-  		echo "Acelerando";
+  		$this -> cor = $cor;
+  		$this -> placa =$placa;
   	}
+
+  	
 
   	function abrirTetoSolar(){
 
@@ -63,6 +85,50 @@
 
 
   }
+
+
+  $y = new Moto('AZUL','ABC2233');
+  $x = new Carro('VERMELHO','ABC2233');
+  $z = new Veiculo();
+
+
+   echo"Objeto da classe veiculo mostrando as caracteristicas que a classe contem";
+    echo"<hr>";
+
+
+  echo "<pre>";
+
+    print_r($z);
+
+  echo "<pre><br>";
+
+  echo"Objeto da classe moto herdando as caracteristicas cor e placa da classe Veiculo";
+    echo"<hr>";
+
+
+  echo "<pre>";
+
+    print_r($y);
+
+  echo "<pre><br>";
+
+   echo"Objeto da classe Carro herdando as caracteristicas cor e placa da classe Veiculo";
+    echo"<hr>";
+
+ echo "<pre>";
+
+    print_r($x);
+
+  echo "<pre><br>";
+
+  echo"chamando metodos herdados<br><hr>";
+  echo "Moto<br>";
+  echo $y->acelerar().'<br>';
+
+  echo "Carro<br>";
+  echo $x->acelerar();
+
+
 
 
 ?>
