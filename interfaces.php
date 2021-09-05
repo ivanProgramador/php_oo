@@ -6,7 +6,10 @@
 
          seja o aparelho que ligue por interruptor/touch/voz/controle/ remoto ... e etc
          se ele liga ou desliga e quiser implmenta-la tem que ter esses metodos caso ele nao tenha 
-         um erro sera apresentado. se ilemetar so um da erro tem ue ser todos os metodos contidos na interface
+         um erro sera apresentado. se implemetar só um da erro tem que ser todos os metodos contidos na interface.
+
+         as vanatgens disso e que se voce estiver trabalhando com um time todos eles precisam implementar os mesmos metodos a interface danddo assim um maior controle doque esta
+         sendo feito no projeto. 
 
 
 
@@ -59,6 +62,115 @@
      		echo "Trocando  canal";
      	}
      }
+      // implementando 2 interfaces ao mesmo tempo
+     //------------------------------------------------
+
+
+     interface MamiferoInterface{
+
+
+     	public function respirar();
+     	
+     }
+
+
+     interface TerrestreInterface{
+
+     	public function andar();
+     	
+     }
+
+     interface AquaticoInterface{
+
+     	public function nadar();
+
+     }
+
+
+     //------------------------------------------------
+     //implementando mais de uma interface
+
+
+     class Humano implements MamiferoInterface,TerrestreInterface{
+
+     	public function andar(){
+     		echo"Andando";
+     	}
+
+     	public function respirar(){
+
+     		echo "Respirando";
+     	}
+
+     }
+     
+     class Baleia implements MamiferoInterface,AquaticoInterface{
+
+     	public function nadar(){
+
+     	     echo"Nadando";
+     	}
+
+     	public function respirar(){
+
+     		echo "Respirando";
+     	}
+
+
+
+     }
+
+
+
+
+     //---------------------------------------
+     //herança de metodos entre interfaces para fazer a herança entre interface use o extends
+
+     interface AnimalInterface{
+
+     	public function comer();
+     }
+
+     interface AveInterface extends AnimalInterface{
+
+     	public function voar();
+     }
+
+
+
+     class Papagaio implements AnimalInterface,AveInterface{
+
+
+     	public function comer(){
+
+     		echo"Comendo";
+     	}
+
+     	public function voar(){
+
+     		echo"Voando";
+     	}
+
+
+
+
+
+
+     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
