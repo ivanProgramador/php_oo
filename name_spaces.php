@@ -12,9 +12,38 @@
 
      namespace A;
 
-     class Cliente{
+
+     interface cadastroInterface {
+
+     	public function salvar();
+     }
+
+     
+
+     /*O codigo abaixo implementa a interface que esta no namespace b isso é possivel graças ao recurso de refrencia entre namespaces \B\ a pirmeira que nao tem pertence 
+     ao namespace A (nativo) e a segunda que tem a referencia \B\ poque nao pertence a namespace B */
+
+     class Cliente implements cadastroInterface,\B\cadastroInterface{
 
      	public $nome = 'jamilton';
+
+     	public function __construct(){
+
+            echo "<pre>";
+     		print_r(get_class_methods($this)); // mostando os metodos da classe
+     		echo "<pre>";
+     	}
+
+     	public function salvar(){
+
+     		echo "Salvando..";
+     	}
+
+     	public function remover(){
+
+     		echo "removendo";
+     	}
+
 
      	public function __get($attr){
 
@@ -22,20 +51,28 @@
 
      	}
      }
-      $c = new Cliente();
-
-     echo print_r($c);
-     echo "<br>";
+     
 
 
 
 
      namespace B;
 
+     interface cadastroInterface {
 
-      class Cliente{
+     	public function remover();
+     }
+
+
+      class Cliente implements cadastroInterface{
 
      	public $nome = 'jorge';
+
+     	public function remover(){
+
+     		echo "removendo";
+     	}
+
 
      	public function __get($attr){
 
@@ -43,9 +80,11 @@
 
      	}
      }
+     
+     // \A\ antes da classe serve pra definir a que classe dos namespaces e estou me 
+     //  refererindo visto que as duas classes tem nomes iguais a unica coisa que //diferencia as mesmas sao o namespace a qual estão contidas.
 
-
-     $c = new Cliente();
+     $c = new \A\Cliente();
 
      echo print_r($c);
   
