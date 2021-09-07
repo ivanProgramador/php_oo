@@ -1,0 +1,8 @@
+link
+
+https://packagist.org/
+
+para buscar e so digitar 
+- Email bibliotecas pra email
+- pdf   bibliotcas pra gerar pdf
+ e assim vai
